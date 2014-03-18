@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+		{%  if user.is_active %}
+		    <p>Usuario: {{ user.username }}</p>
+		    <p><a href="/usuarios/salir/">Salir</a></p>
+		{% else %}
+			<form action='.' method='post'>{% csrf_token %}
+				<label for="username">User name:</label>
+				<input type="text" name="username" value="" name="username">
+				<label for="password">Password:</label>
+				<input type="password" name="password" value="" name="password">
+				<input type="submit" value="login" />
+				<input type="hidden" name="next" value="{{ next|escape }}" />
+			<form action='.' method='post'>
+		{% endif %}
+{% endblock %}

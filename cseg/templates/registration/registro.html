@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+	<form action="/usuarios/registro/" method="POST">{% csrf_token %}
+		<h2>Inserta los datos</h2>
+		    <p>Registro SMTP asesmed</p>
+		    {{ form.as_p  }}
+		    <p>Telefono: <input type="text" name="telefono"></p>
+		    <p>Direccion: <input type="text" name="direccion"></p>
+		<input type="submit" value="Registro">
+	</form>
+{% endblock %}
